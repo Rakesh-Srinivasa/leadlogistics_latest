@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+<style media="screen">
+</style>
+
+{% block content %}
+ <form method="post" enctype="multipart/form-data" class="post-form" action="{% url 'leadlogisticsApp:update' pk=vehicles.pk %}">
+   {% csrf_token %}
+  <div class="container">
+ <br>
+  <div class="form-group row">
+  <div class="col-md-3">
+  <h3>Update Details</h3>
+  </div>
+   </div>
+<div class="form-group row">
+  <!-- <div class="form-group col-md-3 mb-2">
+   <a>Vehicle:</a><input type="text" class="form-control" name="Date" disabled value="{{ vehicles.Vehicle }} "/>
+  </div>
+  <div class="form-group col-md-3 mb-2">
+   <a>Name:</a><input type="text" class="form-control" name="Date" disabled value="{{ vehicles.Name }} "/>
+  </div> -->
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Date in format MM/DD/YYYY:</a><input type="text" class="form-control" name="Date"  />
+  </div>
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Start_km:</a><input type="text" class="form-control" name="Start_km"  value="{{ vehicles.Start_km }}" />
+  </div>
+
+  <div class="form-group col-md-3 mb-2">
+   <a>End_km:</a><input type="text" class="form-control" name="End_km" i value="{{ vehicles.End_km }}" />
+  </div>
+
+
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Toll:</a><input type="text" class="form-control" name="Toll"  value="{{ vehicles.Toll }}" />
+  </div>
+  </div>
+
+<div class="form-group row">
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Food:</a><input type="text" class="form-control" name="Food"  value="{{ vehicles.Food }}" />
+  </div>
+
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Diesel:</a><input type="text" class="form-control" name="Diesel"  value="{{ vehicles.Diesel }}" />
+  </div>
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Maintenance:</a><input type="text" class="form-control" name="Maintenance"  value="{{ vehicles.Maintenance }}" />
+  </div>
+
+
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Permit:</a><input type="text" class="form-control" name="Permit"  value="{{ vehicles.Permit }}" />
+  </div>
+
+
+  </div>
+
+<div class="form-group row">
+
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Insurance:</a><input type="text" class="form-control" name="Insurance"   value="{{ vehicles.Insurance }}" />
+  </div>
+
+  <div class="form-group col-md-3 mb-2">
+   <a >Invoice_details:</a><input type="text" class="form-control" name="Invoice_details"  value="{{ vehicles.Invoice_details }}" />
+  </div>
+
+  <div class="form-group col-md-3 mb-2">
+   <a>Vendorname:</a><input type="text" class="form-control" name="Vendorname"  value="{{ vehicles.Vendorname }}" />
+  </div>
+
+</div>
+
+
+
+
+
+  <label class="col"></label>
+  <div class="col-sm-4">
+  <button type="submit" class="btn btn-success btn-lg">Update</button>
+  </div>
+   </div>
+
+ </form>
+{% endblock %}

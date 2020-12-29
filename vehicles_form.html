@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<!-- {% load crispy_forms_tags %} -->
+
+{% block content %}
+<html lang="en" dir="ltr">
+  <head>
+     <meta charset="utf-8">
+
+<style media="screen">
+#link {
+  text-align: right;
+  color: red;
+}
+
+
+
+
+div.alert-success {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  width: 450px;
+  height: 35px;
+  border: 1px solid blue;
+  text-align: center;
+  border-radius:.25rem;
+  box-sizing: border-box;
+  line-height: 0.55;
+  text-align: center;
+  padding: 5px 0;
+
+}
+
+</style>
+
+
+<style>
+input[type=submit] {
+background-color: #007bff;
+border: 1px solid;
+padding: .375rem .75rem;
+color: white;
+font-weight: 400;
+vertical-align: middle;
+text-align: center;
+display: inline-block;
+font-size: 1rem;
+padding: 12px 16px;
+line-height: 0.55;
+
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+border-radius:.25rem;
+box-sizing: border-box;
+}
+</style>
+  </head>
+  <body>
+
+
+      <form method="POST" enctype="multipart/form-data">
+
+    <!-- Security token -->
+    {% csrf_token %}
+    <!-- {{ form.as_p}} -->
+    {{ context }}
+    {% if messages %}
+
+    <br>
+<div class=" alert-success col-md-12 text-center">
+
+  {% for message in messages %}
+  <h6>{{ message }}</h6>
+
+  {% endfor %}
+
+
+</div>
+{% endif %}
+    <div class="content my-4">
+  		{% if user.is_authenticated %}
+  		<h2>
+  			Welcome
+  			{{user.username }}
+  		</h2>
+
+    <div class="form-row">
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Vehicle|as_crispy_field }}
+      </div>
+      <div class="form-group  col-md-3 mb-0" >
+        <!-- <span> DD/MM/YYYY</span> -->
+        {{ form.Date|as_crispy_field }}
+
+        <!-- <span>Enter the date in format</span> -->
+       <!-- <input type="date" name="date" value= "{{form.date|date:'d-m-Y' }}"  > -->
+      </div>
+
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Name|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Start_km|as_crispy_field }}
+      </div>
+      </div>
+    <div class="form-row">
+      <div class="form-group col-md-3 mb-0">
+        {{ form.End_km|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Toll|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Food|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Diesel|as_crispy_field }}
+      </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Maintenance|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Permit|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Insurance|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Invoice_details|as_crispy_field }}
+      </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group col-md-3 mb-0">
+        {{ form.Vendorname|as_crispy_field }}
+      </div>
+    </div>
+
+    <!-- Using the formset -->
+    <input type="submit" value="Submit">
+    <br>
+    <br>
+
+
+
+</form>
+</div>
+{% endif %}
+
+<br>
+<br>
+<br>
+
+
+  </body>
+  </body>
+</html>
+{% endblock %}

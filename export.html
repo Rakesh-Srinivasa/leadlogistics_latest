@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+input[type=submit] {
+background-color: #007bff;
+border: 1px solid;
+padding: .375rem .75rem;
+color: white;
+font-weight: 400;
+vertical-align: middle;
+text-align: center;
+display: inline-block;
+font-size: 1rem;
+padding: 12px 16px;
+line-height: 0.55;
+
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+border-radius:.25rem;
+box-sizing: border-box;
+}
+</style>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<br>
+    <p>Please select format of file to be exported.</p>
+    <select  name="file-format" class="form-control my-3">
+        <option selected>Choose format...</option>
+        <option>CSV</option>
+        <option>JSON</option>
+        <option>XLS (Excel)</option>
+      </select>
+    <button class="btn btn-warning" type="submit">Export</button>
+
+  </form>
+
+  {% endblock %}

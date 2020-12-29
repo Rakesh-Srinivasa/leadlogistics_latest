@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+<style >
+.background {
+  color: white;
+}
+h3{
+    color: white;
+     text-indent: 50px;
+     letter-spacing: 3px;
+     word-spacing: 10px;
+     text-align: center;
+}
+
+.butt {
+  padding: 10px 10px;
+}
+</style>
+  <p></p>
+  <h3>How To Reach Us?</h3>
+  <div class="container background my-4 ">
+    <br>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input class="butt btn-warning" type="submit"  name="" value="Submit Message">
+      </div>
+ {% endblock %}

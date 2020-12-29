@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<html lang="en" dir="ltr">
+  <head>
+     <meta charset="utf-8">
+    </head>
+  <body>
+
+    <ul>
+    <!-- Iterate over object_list -->
+    {% for object in object_list %}
+    <!-- Display Objects -->
+    <li><span>Vehicle</span>
+      <br>
+      {{ object.Vehicle }}</li>
+    <li>{{ object.name }}</li>
+    <li>{{ object.date }}</li>
+    <li>{{ object.start_km }}</li>
+    <li>{{ object.end_km }}</li>
+    <li>{{ object.Toll }}</li>
+    <li>{{ object.Food }}</li>
+    <li>{{ object.Diesel }}</li>
+
+    <hr/>
+    <!-- If objet_list is empty  -->
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+</ul>
+
+  </body>
+</html>
+{% endblock %}

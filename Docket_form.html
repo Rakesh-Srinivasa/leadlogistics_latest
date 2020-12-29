@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<style>
+
+
+  .slider-area form.search-box {
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 50px;
+      margin-bottom: 15px;
+  }
+  .search-form a {
+      width: 50%;
+      height: 60px;
+      background: #ff5f13;
+      font-size: 20px;
+      line-height: 1;
+      text-align: center;
+      color: #fff;
+      display: block;
+      padding: 15px;
+      border-radius: 0px;
+      text-transform: uppercase;
+      font-family: "Barlow",sans-serif;
+      line-height: 1.2;
+      line-height: 29px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+  }
+
+h4 {
+  color: white;
+}
+.text {
+  width: 45%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+</style>
+<div class="container">
+  <br>
+  <h4>Enter Tracking/Docket No of the Shipment.</h4>
+  <form method="GET" action="{% url 'leadlogisticsApp:detail' %}">
+  	{% csrf_token %}
+    <form action="#" class="search-box">
+
+
+    <div class="input-form">
+    <input type="text" placeholder="Your Tracking Id" tabindex="0" name="Docket" required class="text">
+    <input type="Submit" class="search-form" value="Submit">
+    </div>
+    <br>
+    <div class="search-form">
+    <a href="#" tabindex="0">Track & Trace</a>
+    </div>
+    </form>
+    <p></p>
+    <input type="Submit" class="btn btn-warning" value="Submit">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</div>
+{% endblock %}
